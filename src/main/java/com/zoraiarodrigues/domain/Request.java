@@ -28,7 +28,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
-@Entity(name="request")
+@Entity(name="requests")
 public class Request implements Serializable {
 	/**
 	 * 
@@ -54,8 +54,8 @@ public class Request implements Serializable {
 	private RequestState state;
 	
 	@ManyToOne
-	@JoinColumn(name="owner_id", nullable=false)
-	private User owner;
+	@JoinColumn(name="user_id", nullable=false)
+	private User user;
 	
 	@OneToMany(mappedBy="request")
 	private List<RequestStage> stages =  new ArrayList<>();
